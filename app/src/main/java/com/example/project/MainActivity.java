@@ -12,7 +12,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
@@ -31,11 +30,9 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Animals = new ArrayList<>(Arrays.asList(
-                new Animal("Zebra"),
-                new Animal("Hund"),
-                new Animal("Björn")
-        ));
+        new JsonTask(this).execute(JSON_URL);
+
+        Animals = new ArrayList<>();
 
         recViewAdapter = new RecyclerViewAdapter(this, Animals);
 
@@ -49,9 +46,9 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Log.d("MainActivity", json);
 
         Type type = new TypeToken<ArrayList<Animal>>() {}.getType();
-        ArrayList<Animal> listOfMountains = gson.fromJson(json, type);
+        ArrayList<Animal> listOfAnimals = gson.fromJson(json, type);
 
-        recViewAdapter.updateAdapter(listOfMountains);
+        recViewAdapter.updateAdapter(listOfAnimals);
 
         recViewAdapter.notifyDataSetChanged();
     }
