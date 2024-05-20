@@ -1,7 +1,6 @@
 package com.example.project;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,9 +14,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
+    // Fields
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=a23emijo";
-
-    private ArrayList<Animal> Animals;
 
     private RecyclerView recView;
 
@@ -30,25 +28,22 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Executes the JSON download
         new JsonTask(this).execute(JSON_URL);
-
-        Animals = new ArrayList<>();
-
-        recViewAdapter = new RecyclerViewAdapter(this, Animals);
-
-        recView = findViewById(R.id.recycler_view);
-        recView.setLayoutManager(new LinearLayoutManager(this));
-        recView.setAdapter(recViewAdapter);
     }
 
     @Override
     public void onPostExecute(String json) {
-        Log.d("MainActivity", json);
 
+        // Creates an array of all the items in Animal
         Type type = new TypeToken<ArrayList<Animal>>() {}.getType();
         ArrayList<Animal> listOfAnimals = gson.fromJson(json, type);
 
-        recViewAdapter.updateAdapter(listOfAnimals);
+        // Find the RecyclerView and adds data to it
+        recViewAdapter = new RecyclerViewAdapter(this, listOfAnimals);
+        recView = findViewById(R.id.recycler_view);
+        recView.setLayoutManager(new LinearLayoutManager(this));
+        recView.setAdapter(recViewAdapter);
 
         recViewAdapter.notifyDataSetChanged();
     }
