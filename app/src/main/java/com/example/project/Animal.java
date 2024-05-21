@@ -51,10 +51,6 @@ public class Animal {
         return auxdata;
     }
 
-    public void setAuxdata(AuxData auxdata) {
-        this.auxdata = auxdata;
-    }
-
     // Converts the data to string
     @Override
     public String toString() {
