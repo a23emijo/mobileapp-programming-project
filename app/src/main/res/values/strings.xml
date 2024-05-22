@@ -5,6 +5,8 @@
     <string name="animal_color">Färg:</string>
     <string name="animal_length">Längd:</string>
     <string name="animal_weight">Vikt:</string>
-    <string name="sort_from_A_to_Z">Sort by A-Z</string>
-    <string name="sort_from_Z_to_A">Sort by Z-A</string>
+    <string name="sort_from_A_to_Z">Sortera från A-Z</string>
+    <string name="sort_from_Z_to_A">Sortera från Z-A</string>
+    <string name="about_text">Om</string>
+    <string name="about_display_text">Denna applikation visar upp olika djur, när man klickar på dem visas ytterligare information upp!</string>
 </resources>

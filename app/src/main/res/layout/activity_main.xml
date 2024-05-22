@@ -27,25 +27,37 @@
         app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
 
     <Button
-        android:id="@+id/sort_A_Z"
+        android:id="@+id/about_button"
+        android:text="@string/about_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/recycler_view"
+        app:layout_constraintEnd_toStartOf="@id/sort_A_Z_button"
+        android:layout_marginTop="100dp"/>
+
+
+    <Button
+        android:id="@+id/sort_A_Z_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sort_from_A_to_Z"
+        app:layout_constraintBottom_toTopOf="@id/sort_A_Z_button"
+        app:layout_constraintStart_toEndOf="@id/about_button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/recycler_view"
-        app:layout_constraintEnd_toStartOf="@id/sort_Z_A"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="100dp"/>
 
     <Button
-        android:id="@+id/sort_Z_A"
+        android:id="@+id/sort_Z_A_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sort_from_Z_to_A"
-        app:layout_constraintStart_toEndOf="@id/sort_A_Z"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/recycler_view"
+        app:layout_constraintStart_toEndOf="@id/about_button"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="150dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
