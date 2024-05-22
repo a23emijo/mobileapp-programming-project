@@ -1,13 +1,9 @@
 package com.example.project;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -52,8 +50,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         // Displays the img and info fields values
         if (animal.getAuxdata() != null) {
+            // Tries to load the JSON image three times
             Picasso.get().load(animal.getAuxdata().getImg()).into(holder.auxImage);
+
+            // Placeholder that shows before the image is loaded
             Picasso.get().load(animal.getAuxdata().getImg()).placeholder(R.drawable.ic_launcher_background).into(holder.auxImage);
+
+            // Shows if the original image couldn't load after 3 tries
+            Picasso.get().load(animal.getAuxdata().getImg()).error(R.drawable.error);
         }
     }
 
@@ -94,5 +98,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public interface OnClickListener {
         void onClick(Animal animal);
+    }
+
+    public void sortByAToZ(){
+        Collections.sort(items, new Comparator<Animal>() {
+            @Override
+            public int compare(Animal animal1, Animal animal2) {
+                return animal1.getName().compareTo(animal2.getName());
+            }
+        });
+    }
+
+    public void sortByZToA(){
+        Collections.sort(items, new Comparator<Animal>() {
+            @Override
+            public int compare(Animal animal1, Animal animal2) {
+                return animal2.getName().compareTo(animal1.getName());
+            }
+        });
     }
 }
