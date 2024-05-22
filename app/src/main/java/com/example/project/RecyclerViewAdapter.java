@@ -44,11 +44,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         // Displays the different values except img and info
         holder.name.setText(animal.getName());
-        holder.age.setText(String.valueOf(animal.getCompany()));
+        holder.age.setText(String.valueOf(animal.getCompany() + " år"));
         holder.location.setText(animal.getLocation());
         holder.color.setText(animal.getCategory());
-        holder.length.setText(String.valueOf(animal.getSize()));
-        holder.weight.setText(String.valueOf(animal.getCost()));
+        holder.length.setText(String.valueOf(animal.getSize() + " m"));
+        holder.weight.setText(String.valueOf(animal.getCost() + " kg"));
 
         // Displays the img and info fields values
         if (animal.getAuxdata() != null) {
