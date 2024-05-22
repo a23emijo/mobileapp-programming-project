@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,7 +41,16 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         ArrayList<Animal> listOfAnimals = gson.fromJson(json, type);
 
         // Find the RecyclerView and adds data to it
-        recViewAdapter = new RecyclerViewAdapter(this, listOfAnimals);
+        recViewAdapter = new RecyclerViewAdapter(this, listOfAnimals, new RecyclerViewAdapter.OnClickListener(){
+
+            @Override
+            public void onClick(Animal animal) {
+                // Sets the intents
+                Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+                intent.putExtra("auxInfo", animal.getAuxdata().getInfo()); // Gets the auxInfo data
+                startActivity(intent); // Starts the activity with the intents
+            }
+        });
         recView = findViewById(R.id.recycler_view);
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setAdapter(recViewAdapter);

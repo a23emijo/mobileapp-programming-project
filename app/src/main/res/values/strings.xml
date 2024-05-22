@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">Project</string>
-    <string name="header_text">Placeholder text</string>
+    <string name="app_name">Different Animals</string>
+    <string name="animal_age">Max ålder:</string>
+    <string name="animal_location">Plats:</string>
+    <string name="animal_color">Färg:</string>
+    <string name="animal_length">Längd:</string>
+    <string name="animal_weight">Vikt:</string>
 </resources>
