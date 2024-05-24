@@ -36,11 +36,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return new ViewHolder(layoutInflater.inflate(R.layout.list_item, parent, false));
     }
 
+    // Sets the different values
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Animal animal = items.get(position);
 
-        // Displays the different values except img and info
+        // Sets the different values except img and info
         holder.name.setText(animal.getName());
         holder.age.setText(String.valueOf(animal.getCompany() + " år"));
         holder.location.setText(animal.getLocation());
@@ -48,7 +49,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.length.setText(String.valueOf(animal.getSize() + " m"));
         holder.weight.setText(String.valueOf(animal.getCost() + " kg"));
 
-        // Displays the img and info fields values
+        // Sets the img and info fields values
         if (animal.getAuxdata() != null) {
             // Tries to load the JSON image three times
             Picasso.get().load(animal.getAuxdata().getImg()).into(holder.auxImage);
@@ -77,7 +78,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView weight;
         ImageView auxImage;
 
-        // Sets the value of the data onto the View
+        // Displays the value of the data on the View
         ViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
@@ -90,16 +91,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             auxImage = itemView.findViewById(R.id.auxImage);
         }
 
+        // Gets the position of the click on the different elements in the RecyclerView
         @Override
         public void onClick(View view) {
             onClickListener.onClick(items.get(getAdapterPosition()));
         }
     }
 
+    // Create a interface for onClick on Animal
     public interface OnClickListener {
         void onClick(Animal animal);
     }
 
+    // Sort by A to Z
     public void sortByAToZ(){
         Collections.sort(items, new Comparator<Animal>() {
             @Override
@@ -109,6 +113,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         });
     }
 
+    // Sorts by Z to A
     public void sortByZToA(){
         Collections.sort(items, new Comparator<Animal>() {
             @Override

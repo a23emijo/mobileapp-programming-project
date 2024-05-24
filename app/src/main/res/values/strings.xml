@@ -8,5 +8,8 @@
     <string name="sort_from_A_to_Z">Sortera från A-Z</string>
     <string name="sort_from_Z_to_A">Sortera från Z-A</string>
     <string name="about_text">Om</string>
-    <string name="about_display_text">Denna applikation visar upp olika djur, när man klickar på dem visas ytterligare information upp!</string>
+    <string name="about_display_text">Denna applikation visar upp olika djur, när man klickar på dem visas ytterligare information upp!
+        Appen är till för de personer som vill lära sig snabb fakta men även fördjupad fakta om ett/flera djur.
+        Appen kräver ej teknisk förkunskap då den är enkel att använda och förstå.
+    </string>
 </resources>
