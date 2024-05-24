@@ -8,7 +8,7 @@ som förklarar vad appen är till för och för vilken målgrupp den är menad f
 
 ## Följande grundsyn gäller dugga-svar:
 
-Koden nedan ger applikationen tillgång till internet.
+Koden nedan ger applikationen åtkomst till internet.
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
