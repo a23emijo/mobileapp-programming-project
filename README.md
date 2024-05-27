@@ -1,7 +1,7 @@
 
 # Rapport
 
-Jag har skapat en applikation som visar upp olika djur med kort information. Klickar man inte på djuret
+Jag har skapat en applikation som visar upp olika djur med kort information. Klickar man på djuret
 visas mer detaljerad information om just det djuret. All data hämtas via JSON och visas upp i en RecyclerView.
 Appen har även funktioner för att sortera från A-Z och tvärt om. Det finns även en Om-skärm (About-screen)
 som förklarar vad appen är till för och för vilken målgrupp den är menad för.
